@@ -1,0 +1,1 @@
+export const GENERATE_NEW_ARRAY = 'GENERATE_NEW_ARRAY';
