@@ -3,10 +3,19 @@ import styles from '../styles/header.module.css';
 
 //component
 import Redirect from './Redirect';
+import CancelButton from './buttons/CancelButton';
 
-const Header = () => {
+//redux
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+    status: state.animation.status,
+});
+
+const Header = ({status}) => {
     return (
         <div className={styles.container}>
+            { status === 'active' && <CancelButton />}
             <Redirect 
             text="notes"
             />
@@ -18,4 +27,6 @@ const Header = () => {
     )
 }
 
-export default React.memo(Header)
+export default connect(
+    mapStateToProps,
+)(React.memo(Header));

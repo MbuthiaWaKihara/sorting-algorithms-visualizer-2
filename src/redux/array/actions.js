@@ -1,5 +1,6 @@
 import {
     GENERATE_NEW_ARRAY,
+    CHANGE_CURRENT_ARRAY,
 } from './types';
 
 import {
@@ -13,3 +14,8 @@ export const generateNewArray = (size) => {
         payload: array,
     });
 }
+
+export const changeCurrentArray = array => ({
+    type: CHANGE_CURRENT_ARRAY,
+    payload: array,
+});

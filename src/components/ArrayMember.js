@@ -10,17 +10,19 @@ const mapStateToProps = state => ({
 const ArrayMember = ({instance, lastmember, size}) => {
 
     const height = 70 / size;
+    const className = instance.className;
 
     const style = {
         width: `${instance.number / 2.1}%`,
         height: `${height}%`,
-        backgroundColor: '#000000',
         margin: '0 0 0 auto',
         borderRadius: 10,
         marginBottom: !lastmember ? 1.5 : 0,
+        backgroundColor: className === 'sorted' ? '#00ff26' : className === 'wronglyOrdered' ? '#ff0000' :
+        className === 'inComparison' ? '#eeff00' : '#000000',
     }
     return (
-        <div style={style}/>
+        <div style={style} />
     )
 }
 

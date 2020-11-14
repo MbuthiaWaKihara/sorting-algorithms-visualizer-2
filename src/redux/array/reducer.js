@@ -1,5 +1,6 @@
 import {
     GENERATE_NEW_ARRAY,
+    CHANGE_CURRENT_ARRAY,
 } from './types';
 import { createNewArray } from '../../logic/arrayLogic';
 
@@ -17,8 +18,13 @@ const arrayReducer = (state = initialState, action) => {
                 array: action.payload,
                 size: action.payload.length,
             }
+        case CHANGE_CURRENT_ARRAY:
+            return {
+                ...state,
+                array: action.payload,
+            }
         default: 
-            return initialState;
+            return state;
     }
 }
 

@@ -6,7 +6,7 @@ const Redirect = ({text, url}) => {
         width: '10%',
         height: '100%',
         position: 'relative',
-        left: text === "notes" ? '65%' : '74%',
+        left: text === "notes" ? '43%' : '55%',
         textAlign: 'center',
         fontFamily: '"Poppins", sans-serif',
         fontSize: 30,

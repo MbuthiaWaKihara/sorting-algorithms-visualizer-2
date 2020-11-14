@@ -20,10 +20,18 @@ import {
  //scoped styles
  import classes from './styles/app.module.css';
 
+ //toast
+ import { toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
+
+export const IntervalContext = React.createContext();
+toast.configure();
 const App = () => {
+    const animationInterval = React.useRef();
     return (
         <>
            <Provider store={store} >
+               <IntervalContext.Provider value={animationInterval}>
                <Grid fluid className={classes.container}>
                    <Row className={classes.main}>
                        <Col className={classes.column}>
@@ -48,6 +56,7 @@ const App = () => {
                        </Col>
                    </Row>
                </Grid>
+               </IntervalContext.Provider>
            </Provider>
         </>
     )

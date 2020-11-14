@@ -1,0 +1,13 @@
+.container {
+    width: 20%;
+    height: 30%;
+    background-color: #ff0000;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    padding-top: 5px;
+    cursor: pointer;
+    position: relative;
+    top: 30%;
+}

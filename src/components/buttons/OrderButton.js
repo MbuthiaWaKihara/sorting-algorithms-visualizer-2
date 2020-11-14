@@ -8,8 +8,7 @@ import {
 //redux
 import { connect } from 'react-redux';
 import {
-    setOrderAscending,
-    setOrderDescending,
+    setOrder,
 } from '../../redux';
 
 //scoped styles
@@ -27,21 +26,17 @@ const styles = {
 
 const mapStateToProps = state => ({
     currentOrder: state.algorithms.order,
+    status: state.animation.status,
 });
 
 const mapDispatchToProps = dispatch => ({
-    setOrderAscending: () => dispatch(setOrderAscending()),
-    setOrderDescending: () => dispatch(setOrderDescending()),
+    setOrder: order => dispatch(setOrder(order)),
 })
 
-const OrderButton = ({order, currentOrder, position, setOrderAscending, setOrderDescending}) => {
-    let relevantFunction;
-
-    if(order === 'ascending') relevantFunction = setOrderAscending;
-    if(order === 'descending') relevantFunction = setOrderDescending;
+const OrderButton = ({order, currentOrder, position, setOrder, status}) => {
 
     const handleClick = () => {
-        relevantFunction();
+        if(order !== currentOrder) setOrder(order);
     }
     return (
         <>
@@ -55,6 +50,7 @@ const OrderButton = ({order, currentOrder, position, setOrderAscending, setOrder
                  color: order === currentOrder ? '#ffffff' : '#000000',
             }}
             onClick={handleClick}
+            disabled={status === 'active'}
             >{order}</Button>
         </>
     )

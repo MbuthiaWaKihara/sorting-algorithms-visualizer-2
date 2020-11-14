@@ -18,6 +18,7 @@ import {
 const mapStateToProps = state => ({
     size: state.arrayData.size,
     milliseconds: state.animation.milliseconds,
+    status: state.animation.status,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -25,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
     setMilliseconds: milliseconds => dispatch(setMilliseconds(milliseconds)),
 })
 
-const ArrayControl = ({right, size, milliseconds, generateArray, setMilliseconds}) => {
+const ArrayControl = ({right, size, milliseconds, generateArray, setMilliseconds, status}) => {
 
     const styles = {
         container: {
@@ -59,6 +60,7 @@ const ArrayControl = ({right, size, milliseconds, generateArray, setMilliseconds
             value={right ? milliseconds : size}
             onChange={handleChange}
             invert={right}
+            disabled={status === 'active'}
             />
             <div style={styles.title}>
                 <Title content={right ? "speed" : "size"} />

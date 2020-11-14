@@ -5,6 +5,9 @@ import {
     Button,
 } from 'rsuite';
 
+//redux
+import { connect } from 'react-redux';
+
 //scoped styles
 const styles = {
     button: {
@@ -18,7 +21,11 @@ const styles = {
     }
 }
 
-const LargeButton = ({active, title, action}) => {
+const mapStateToProps = state => ({
+    status: state.animation.status,
+})
+
+const LargeButton = ({active, title, action, status}) => {
     return (
         <>
             <Button 
@@ -30,9 +37,12 @@ const LargeButton = ({active, title, action}) => {
                  color: active ? '#ffffff' : '#000000',
             }}
             onClick={action}
+            disabled={status === 'active'}
             >{title}</Button>
         </>
     )
 }
 
-export default React.memo(LargeButton);
+export default connect(
+    mapStateToProps,
+)(React.memo(LargeButton));

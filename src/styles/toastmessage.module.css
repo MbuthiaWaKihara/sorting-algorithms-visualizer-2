@@ -1,0 +1,18 @@
+.container {
+    background-color: #ffffff;
+}
+
+.content {
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.closeButton {
+    background-color: #000000;
+    color: #ffffff;
+    width: 20%;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    left: 40%;
+    /* border-radius: 50%; */
+}

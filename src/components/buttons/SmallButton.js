@@ -8,11 +8,7 @@ import {
 //redux
 import { connect } from 'react-redux';
 import {
-    setAlgorithmBubble,
-    setAlgorithmInsertion,
-    setAlgorithmMerge,
-    setAlgorithmQuick,
-    setAlgorithmSelection,
+    setAlgorithm
 } from '../../redux';
 
 //scoped styles
@@ -29,31 +25,20 @@ const styles = {
 
 const mapStateToProps = state => ({
     algorithm: state.algorithms.algorithm,
+    status: state.animation.status,
 });
 
 const mapDispatchToProps = dispatch => ({
-    setAlgorithmBubble: () => dispatch(setAlgorithmBubble()),
-    setAlgorithmInsertion: () => dispatch(setAlgorithmInsertion()),
-    setAlgorithmSelection: () => dispatch(setAlgorithmSelection()),
-    setAlgorithmMerge: () => dispatch(setAlgorithmMerge()),
-    setAlgorithmQuick: () => dispatch(setAlgorithmQuick()),
+    setAlgorithm: algorithm => dispatch(setAlgorithm(algorithm)),
 })
 
 const SmallButton = ({
-    alg, algorithm, position, setAlgorithmBubble,
-    setAlgorithmSelection, setAlgorithmMerge, setAlgorithmQuick, setAlgorithmInsertion 
+    alg, algorithm, position, setAlgorithm, status
 }) => {
-
-    let relevantFunction;
-    if(alg === 'insertion') relevantFunction = setAlgorithmInsertion;
-    if(alg === 'selection') relevantFunction = setAlgorithmSelection;
-    if(alg === 'merge') relevantFunction = setAlgorithmMerge;
-    if(alg === 'quick') relevantFunction = setAlgorithmQuick;
-    if(alg === 'bubble') relevantFunction = setAlgorithmBubble;
 
     //click callback
     const handleClick = () => {
-        relevantFunction();
+        if(alg !== algorithm) setAlgorithm(alg);
     }
     return (
         <>
@@ -67,6 +52,7 @@ const SmallButton = ({
                  color: alg === algorithm ? '#ffffff' : '#000000',
             }}
             onClick={handleClick}
+            disabled={status === 'active'}
             ><div style={{display: 'flex', flexDirection: 'row'}}>
                 <div style={{marginLeft: 10, fontSize: 30, }}>{alg}</div>
                 <div style={{marginLeft: 10, fontSize: 20, paddingTop: 10, }}>sort</div>
