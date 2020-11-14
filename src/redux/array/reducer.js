@@ -15,6 +15,7 @@ const arrayReducer = (state = initialState, action) => {
             return {
                 ...state,
                 array: action.payload,
+                size: action.payload.length,
             }
         default: 
             return initialState;

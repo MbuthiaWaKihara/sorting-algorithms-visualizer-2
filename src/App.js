@@ -14,6 +14,8 @@ import {
  //components
  import ActionArea from './components/ActionArea';
  import Screen from './components/Screen';
+ import Header from './components/Header';
+ import ArrayControl from './components/ArrayControl';
 
  //scoped styles
  import classes from './styles/app.module.css';
@@ -28,7 +30,20 @@ const App = () => {
                            <ActionArea />
                        </Col>
                        <Col className={classes.column1}>
-                            <div style={{width: '100%', height: '33.33%',}}/>
+                            <div style={{
+                                width: '100%', height: '33.33%',
+                            }}>
+                                <Header />
+                                <div style={{
+                                    width: '100%',
+                                    height: '40%',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                }}>
+                                    <ArrayControl />
+                                    <ArrayControl right/>
+                                </div>
+                            </div>
                             <Screen />
                        </Col>
                    </Row>
