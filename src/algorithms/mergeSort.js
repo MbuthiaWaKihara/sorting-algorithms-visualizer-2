@@ -1,4 +1,4 @@
-export default (decreasing, arr,  n) =>
+const mergeSort = (decreasing, arr,  n) =>
     { 
           
         const  merge = (arr, l, m, r) => 
@@ -200,3 +200,5 @@ export default (decreasing, arr,  n) =>
 
         return frames;
 } 
+
+export default mergeSort;

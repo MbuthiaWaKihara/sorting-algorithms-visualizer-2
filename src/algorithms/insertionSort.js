@@ -1,4 +1,4 @@
-export default (decreasing, rawArray) => {
+const insertionSort = (decreasing, rawArray) => {
     let holder;
     let copyArray = rawArray;
     let frames = [];
@@ -43,3 +43,5 @@ export default (decreasing, rawArray) => {
     return frames;
     
 }
+
+export default insertionSort;

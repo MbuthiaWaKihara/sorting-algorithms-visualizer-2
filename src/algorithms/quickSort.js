@@ -1,4 +1,4 @@
-export default (decreasing, rawArray, start, end) => {
+const quickSort = (decreasing, rawArray, start, end) => {
     const partition = (rawArray, start, end) => {
         
         let subframes = [];
@@ -96,3 +96,5 @@ export default (decreasing, rawArray, start, end) => {
     
     return frames;
 }
+
+export default quickSort;

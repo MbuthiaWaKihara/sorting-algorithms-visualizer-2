@@ -1,4 +1,4 @@
-export default (decreasing, rawArray) => {
+const bubbleSort =  (decreasing, rawArray) => {
     let swapped;
     let holder;
     let copyArray = rawArray;
@@ -48,3 +48,5 @@ export default (decreasing, rawArray) => {
 
     return frames;
 }
+
+export default bubbleSort;

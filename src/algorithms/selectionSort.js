@@ -1,4 +1,4 @@
-export default (decreasing, rawArray) => {
+const selectionSort = (decreasing, rawArray) => {
     let selectionLimit = rawArray.length - 1;
     let holder;
     let copyArray = rawArray;
@@ -70,3 +70,5 @@ export default (decreasing, rawArray) => {
 
     return frames;
 }
+
+export default selectionSort;
