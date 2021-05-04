@@ -43,6 +43,7 @@ const Screen = ({array, status, frames, milliseconds, changeArray, changeStatus,
                 animationPosition.current++; 
             }, milliseconds);
         }
+    //eslint-disable-next-line
     },[status]);
 
     //stop animation
